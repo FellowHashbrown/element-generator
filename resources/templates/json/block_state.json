@@ -1,0 +1,7 @@
+{
+	"variants": {
+		"normal": {
+			"model": "modId:element_block"
+		}
+	}
+}

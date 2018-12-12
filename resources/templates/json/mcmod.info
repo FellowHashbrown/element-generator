@@ -1,0 +1,19 @@
+[
+{
+  "modid": "modIdHere",
+  "name": "modNameHere",
+  "description": "descriptionHere",
+  "version": "versionHere",
+  "credits": "creditsHere",
+  "logoFile": "/logo.png",
+  "mcversion": "versionMcHere",
+  "url": "urlHere",
+  "updateUrl": "updateUrlHere",
+  "authorList": authorsHere,
+  "parent": "",
+  "screenshots": [],
+  "dependencies": [
+     "mod_MinecraftForge"
+  ]
+}
+]

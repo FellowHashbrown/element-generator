@@ -1,0 +1,12 @@
+package com.authorId.modId;
+
+public class ClientProxyModName extends CommonProxyModName {
+	
+	@Override
+	public void registerRenderers(ModName modId) {
+	
+		Registers
+		
+	}
+	
+}

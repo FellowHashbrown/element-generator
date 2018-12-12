@@ -1,0 +1,124 @@
+package com.authorId.modId;
+
+import java.util.Random;
+import java.util.HashMap;
+import java.util.Set;
+
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Items;
+import net.minecraft.item.Item;
+import net.minecraft.item.Item.ToolMaterial;
+import net.minecraft.item.ItemPickaxe;
+import net.minecraft.item.ItemStack;
+import net.minecraft.world.World;
+import net.minecraftforge.common.util.EnumHelper;
+import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
+import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.relauncher.Side;
+
+public class ElementHerePickaxe {
+	
+	//Variables
+	public static Item elementHere_pickaxe;
+	public static Object instance;
+	
+	//Constructor
+	public ElementHerePickaxe() {
+		
+	}
+	
+	//Other Methods
+	public void generateSurface(World world, Random random, int chunkX, int chunkZ) {
+		
+	}
+	
+	public void generateNether(World world, Random random, int chunkX, int chunkZ) {
+		
+	}
+	
+	public void registerRenderers() {
+		
+	}
+	
+	public int addFuel(ItemStack fuel) {
+		return 0;
+	}
+	
+	//Setup
+	static {
+		ToolMaterial toolMaterial = EnumHelper.addToolMaterial("elementHere_pickaxe", harvestLevel, uses, efficiencyF, attackDamage, enchantability);
+		elementHere_pickaxe = (Item)(new ItemPickaxe(toolMaterial) {
+			public Set<String> getToolClasses(ItemStack itemStack) {
+				HashMap<String, Integer> returnSet = new HashMap<String, Integer>();
+				returnSet.put("pickaxe", 5);
+				return returnSet.keySet();
+			}
+		});
+		
+		elementHere_pickaxe.setUnlocalizedName("elementHere_pickaxe");
+		elementHere_pickaxe.setRegistryName("elementHere_pickaxe");
+		GameRegistry.register(elementHere_pickaxe);
+		elementHere_pickaxe.setCreativeTab(ModName.ModNameTab);
+	}
+	
+	//Actual Item Class
+	static class ElementHerePickaxeItem extends Item {
+		
+		public ElementHerePickaxeItem() {
+			setMaxDamage(0);
+			maxStackSize = 64;
+			setUnlocalizedName("elementHere_pickaxe");
+			setRegistryName("elementHere_pickaxe");
+			GameRegistry.register(this);
+			setCreativeTab(ModName.ModNameTab);
+		}
+		
+		@Override
+		public int getItemEnchantability() {
+			return 0;
+		}
+		
+		@Override
+		public int getMaxItemUseDuration(ItemStack itemStack) {
+			return 0;
+		}
+		
+		public float getStrVsBlock(ItemStack itemStack, IBlockState blockState) {
+			return 1.0F;
+		}
+	}
+	
+	//Initializations
+	public void serverLoad(FMLServerStartingEvent e) {
+		
+	}
+	
+	public void preInit(FMLPreInitializationEvent e) {
+		
+	}
+	
+	public void load(FMLInitializationEvent e) {
+		//Rendering Item
+		if(e.getSide() == Side.CLIENT) {
+			Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(elementHere_pickaxe, 0, new ModelResourceLocation("modId:elementHere_pickaxe", "inventory"));
+		}
+		
+		//Recipes
+		GameRegistry.addShapedRecipe(
+				new ItemStack(elementHere_pickaxe, 1),
+				new Object[] {
+						"GGG",
+						"XSX",
+						"XSX",
+						Character.valueOf('G'), ElementHereGem.elementHere_gem,
+						Character.valueOf('S'), Items.STICK
+				}
+		);
+	}
+
+}

@@ -1,0 +1,9 @@
+package com.authorId.modId;
+
+public class CommonProxyModName {
+
+	public void registerRenderers(ModName modId) {
+		
+	}
+
+}

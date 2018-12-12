@@ -1,0 +1,132 @@
+package com.authorId.modId;
+
+import java.util.Random;
+
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
+import net.minecraft.init.Items;
+import net.minecraft.item.Item;
+import net.minecraft.world.World;
+import net.minecraft.world.chunk.IChunkProvider;
+import net.minecraft.world.chunk.IChunkGenerator;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraftforge.client.model.obj.OBJLoader;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fml.common.IFuelHandler;
+import net.minecraftforge.fml.common.IWorldGenerator;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.Mod.EventHandler;
+import net.minecraftforge.fml.common.Mod.Instance;
+import net.minecraftforge.fml.common.SidedProxy;
+import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
+import net.minecraftforge.fml.common.network.IGuiHandler;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
+import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.relauncher.Side;
+
+@Mod(modid = ModName.MODID, version = ModName.VERSION)
+public class ModName implements IFuelHandler, IWorldGenerator {
+	
+    public static final String MODID = "modId";
+    public static final String VERSION = "versionNumber";
+    
+    @SidedProxy(clientSide = "com.authorId.modId.ClientProxyModName", serverSide ="com.authorId.modId.CommonProxyModName")
+    public static CommonProxyModName proxy;
+    
+    @Instance(MODID)
+    public static ModName instance;
+    
+    //Custom Creative Tab
+    public static final CreativeTabs ModNameTab = new CreativeTabs("modId") {
+    	@Override
+    	public ItemStack getIconItemStack() {
+    		return new ItemStack(IconName.icon_name);
+    	}
+    	@Override
+    	public ItemStack getTabIconItem() {
+    		return null;
+    	}
+    };
+    
+DeclarationsHere
+    
+    //Mod Burn Time
+    @Override
+    public int getBurnTime(ItemStack fuel) {
+
+FuelsHere
+    	
+    	return 0;
+    }
+    
+    //Mod World & Nether Generation
+    @Override
+    public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
+    	
+    	//Block generation
+    	chunkX = chunkX * 16;
+    	chunkZ = chunkZ * 16;
+    	//Nether generation
+    	if(world.provider.getDimension() == -1) {
+GenerateNethersHere
+    	}
+    	//Surface generation
+    	if(world.provider.getDimension() == 0) {
+GenerateSurfacesHere
+    	}
+    	//End generation
+    	if(world.provider.getDimension() == 1) {
+GenerateEndsHere
+    	}
+    }
+    
+    @EventHandler
+    public void init(FMLInitializationEvent event) {
+    	
+    	GameRegistry.registerFuelHandler(this);
+    	GameRegistry.registerWorldGenerator(this, 1);
+    	
+    	if(event.getSide() == Side.CLIENT) {
+    		OBJLoader.INSTANCE.addDomain("modId");
+    	}
+    	
+    	MinecraftForge.EVENT_BUS.register(new GlobalEventsModName());
+    	NetworkRegistry.INSTANCE.registerGuiHandler(this, new GuiHandler());
+    	
+    	
+LoadsHere
+    	
+    	proxy.registerRenderers(this);
+    	
+    }
+    
+    @EventHandler
+    public void serverLoad(FMLServerStartingEvent event) {
+    	
+ServerLoadHere
+    	
+    }
+    
+    @EventHandler
+    public void preInit(FMLPreInitializationEvent event) {
+    	
+InstancesHere
+    	
+    	
+PreInitsHere
+    }
+    
+    public static class GuiHandler implements IGuiHandler {
+    	@Override
+    	public Object getServerGuiElement(int id, EntityPlayer player, World world, int x, int y, int z) {
+    		return null;
+    	}
+    	
+    	@Override
+    	public Object getClientGuiElement(int id, EntityPlayer player, World world, int x, int y, int z) {
+    		return null;
+    	}
+    }
+}
