@@ -10,7 +10,7 @@ Every mod you make is stored in the same directory as the `.jar` file as in. It 
 
 Every element you make is also stored in the same directory as the `.jar` file. These are stored under `Saved Elements`
 
-NOTE: I highly recommend putting the jar file, which is available [here](https://drive.google.com/uc?export=download&id=1GBE9MqUt9FLldiQFhNMqiFham-F4ttaG) in its own folder for easy management.
+NOTE: I highly recommend putting the jar file, which is available [here](https://drive.google.com/uc?export=download&id=1GBE9MqUt9FLldiQFhNMqiFham-F4ttaG), in its own folder for easy management.
 
 ## Mod
 
