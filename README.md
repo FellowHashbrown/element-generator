@@ -1,4 +1,4 @@
-![![FellowHashbrown Discord Server](discord.gg/mvNxh3f)](https://img.shields.io/discord/521185038969208850.svg)
+![![FellowHashbrown Discord Server](https://img.shields.io/discord/521185038969208850.svg)](discord.gg/mvNxh3f)
 
 # Element Generator
 
