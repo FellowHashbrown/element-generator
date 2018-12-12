@@ -17,7 +17,7 @@ NOTE: I highly recommend putting the jar file, which is available [here](https:/
 ### Creating a new mod
 
 When creating a new mod, all you have to do is load up the file. From here, you can start creating a mod that fits your needs and wants.
-![Initial Screen](initialScreen.png)
+![Initial Screen](initialScreen.PNG)
 
 ### Saving the mod
 
