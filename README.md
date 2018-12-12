@@ -1,3 +1,5 @@
+![Discord Server](https://img.shields.io/discord/521185038969208850.svg)
+
 # Element Generator
 
 ## What is this?
